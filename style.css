@@ -1,0 +1,345 @@
+/* Add CSS here */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Syne+Mono&display=swap');
+/*===== VARIABLES CSS =====*/
+
+:root {
+    --h1-fs: 2rem;    --h1-fs-media: 3rem; 
+    --h2-fs: 1.5rem;  --h2-fs-media: 2rem;
+    --h3-fs: 1.3rem;  --h3-fs-media: 1.8rem;
+    --h4-fs: 1.1rem;  --h4-fs-media: 1.5rem;
+    --p-fs: .9rem;    --p-fs-media: 1.1rem;
+    --a-fs: .7rem;    --a-fs-media: 1.1rem;
+    --li-fs: .7rem;   --li-fs-media: 1.1rem;    
+
+    --clr-bg-main: #ddf1f1;
+    --clr-bg-pri: #efd99b;
+    --clr-bg-sec: #f3fafa;
+    --clr-acc-main: #00bea6;
+    --clr-acc-pri: #009885;
+    --clr-acc-sec: #33cbb8;
+    --clr-acc-thi: #d80000;
+    --clr-acc-four: #ad0000;
+    --clr-acc-fif: #e03333;
+    --clr-text-main: #250a01;
+    --clr-text-pri: #36454F;  
+    
+    --shadow-color: #33cbb8;    
+    --main-ff: 'Poppins', sans-serif;
+  }
+
+/*===== BASE =====*/
+
+*,
+::before,
+::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--main-ff);
+    font-size: var(--p-fs);
+    background: radial-gradient(#a96041 20%, #250a01);
+    color: var(--clr-text-main);
+    width: 100%;
+    min-height: 100vh;
+}   
+
+h1, h2, h3, h4,
+p, a, li {
+    margin: 0;
+}
+
+h1 {font-size: var(--h1-fs);}
+h2 {font-size: var(--h2-fs);}
+h3 {font-size: var(--h3-fs);}
+h4 {font-size: var(--h4-fs);}
+
+p, a, li {font-size: var(--p-fs);}
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: var(--clr-text-main);
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+@keyframes scaleUp {
+    from {
+        opacity: 0;
+        transform: scale(0);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+
+    }
+}
+    /* animation: scaleUp 1s ease-in-out;
+    transform-origin: center center; */
+
+/*===== BUTTONS =====*/
+
+.btn {
+    display: inline-block;
+    background: none;
+    color: var(--clr-text-main);
+    padding: .9rem 1.5rem;
+    width: 7rem;
+    font-weight: 600;
+    border: 1px solid var(--clr-text-main);
+    border-radius: 5px;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: .2s;
+    position: relative;
+    overflow: hidden;
+    will-change: transform;
+}
+
+.btn:hover {
+    will-change: transform;
+}
+
+.btn:first-child:hover {
+    color: #fff;
+}
+
+.btn:first-child:before {                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--clr-text-main);
+    transform: translate(0, -100%);
+    z-index: -1;
+    transition: transform 0.4s cubic-bezier(0.5,1.6,0.4,0.7);    
+}
+
+.btn:first-child:hover::before{
+    transform: translate(0, 0);
+}
+
+
+
+.btn:last-child {
+    background-color: #250a01;
+    color: #fff;
+}
+
+.btn:last-child:hover {
+    color: var(--clr-text-main);
+}
+
+.btn:last-child:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--clr-bg-pri);
+    z-index: -1;
+    transition: transform 0.4s cubic-bezier(0.5,1.6,0.4,0.7);
+    transform-origin: 0, 0;
+    transform: scaleX(0);
+
+}
+
+.btn:last-child:hover:before {
+    transform: scaleX(1);
+}
+
+.btn:active {
+    scale: .97;
+}
+
+/*===== PROJECT CSS =====*/
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    width: 350px;
+    min-width: 350px;
+    height: 500px;
+    background-color: var(--clr-bg-pri);
+    position: relative;
+    animation: scaleUp 1s ease-in-out;
+    transform-origin: center center;
+    box-shadow: 0px 8px 30px -10px var(--clr-bg-pri);
+    overflow: hidden;
+}
+
+header {
+    background-color: var(--clr-text-main);
+    color: #fff;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+header svg, i {
+    cursor: pointer;
+}
+
+.card {
+    width: 100%;
+    transform: translateX(100%);
+    padding: 1rem;
+    position: absolute;
+    transition: .3s;
+}
+
+.card.active {
+    transform: translateX(0); 
+}
+
+.wrapper {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+
+h4 {
+    text-align: center;
+    margin: 1rem auto;
+    padding: .2rem 1rem;
+    display: block;
+    white-space: nowrap;   
+    width: min-content;
+    border-bottom: 1px solid var(--clr-text-main);
+}
+
+.card svg {
+    display: block;
+    width: 10rem;
+    height: 10rem;
+    margin: 1rem auto;
+}
+
+.card p {
+    text-align: center;
+}
+
+.card:first-of-type i {
+    font-size: 2rem;
+    text-align: center;
+    line-height: 3rem;
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    display: block;
+    position: absolute;
+    bottom: -6rem;
+    right: 2rem;
+    background-color: var(--clr-text-main);
+    color: #fff;
+}
+
+.card:last-of-type p {
+    text-align: left;
+}
+
+.dropdown {
+    position: relative;
+    border: 1px solid var(--clr-text-main);
+    display: inline-block;
+    width: 100%;
+    border-radius: .3rem;
+    margin-top: .3rem;
+}
+
+.dropdown>div
+{
+    padding: .65rem;
+
+}
+
+.dropdown {
+    cursor: pointer;
+}
+
+.dropdown .link {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.dropdown-menu {
+    position: absolute;
+    left: 0;
+    top: calc(100% + .25rem);
+    background-color: #fff;
+    width: 100%;
+    padding: .4rem;
+    border-radius: .25rem;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .1);
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-10px);
+    transition: opacity .15s ease-in-out, transform .15s ease-in-out;
+    z-index: 2;
+}
+
+.dropdown-menu li {
+    padding: .5rem;
+    cursor: pointer;
+}
+
+.dropdown.active>.link+.dropdown-menu {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+
+.adding {
+    display: flex;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.5rem;
+    margin: .5rem 0;
+    
+}
+
+.adding > div {
+    padding: .65rem;
+    border: 1px solid var(--clr-text-main);
+    border-radius: .3rem;
+    /* width: 3rem; */
+    text-align: center;
+}
+
+.adding .no {
+    display: inline-block;
+    /* margin: 0 auto; */
+    scale: 1;
+}
+
+.adding .noWrap {
+    grid-column: span 2;
+}
+.btns {
+    margin-top: 1rem;
+}
